@@ -6,20 +6,20 @@
         </a>
     </div>
     <div class="nav-links">
-        <input type="checkbox" id="toggle" class="checkbox1">
+        <input type="checkbox" id="toggle" class="checkbox1" v-model="checked">
         <label id="hamburger" for="toggle">
             <div class="hamburger hamburger1">
-            <span class="bar bar1"></span>
-            <span class="bar bar2"></span>
-            <span class="bar bar3"></span>
-            <span class="bar bar4"></span>
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+                <span class="bar bar4"></span>
             </div>
         </label>
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="#">Guides</a>
-            <a href="#">Blog</a>
-            <a href="#">Applications</a>
+        <div class="menu" @click="checked = false">
+            <router-link to="/">Home</router-link>
+            <router-link to="/guides">Guides</router-link>
+            <router-link to="/blog">Blog</router-link>
+            <router-link to="/apps">Applications</router-link>
             <router-link to="/about">About Me</router-link>
             <a href="#">Log In</a>
         </div>
@@ -28,7 +28,11 @@
 </template>
 <script>
 export default {
-    
+    data(){
+        return {
+            checked: false
+        }
+    }
 }
 </script>
 <style scoped>
@@ -166,12 +170,12 @@ export default {
    .hamburger {
        display: block;
        margin: 15px;
-   } 
+    } 
    .menu {
 
        display: none;
        margin-top: 96px;
-   }
+    }
 
    .menu a {
        display: block;
@@ -182,16 +186,17 @@ export default {
        text-align: center;
        margin: 0;
        transition: 2s;
-   }
+    }
 
    .checkbox1:checked + #hamburger + .menu {
        display: block ;
        animation: fadein 2s;
        
-   }
-
+    }
 
 }
+
+
 
 
 @keyframes fadein {
