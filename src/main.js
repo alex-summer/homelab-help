@@ -8,8 +8,8 @@ import Login from './components/Pages/Login.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/about', component: AboutMe},
         { path: '/', component: Home},
+        { path: '/about', component: AboutMe},
         {path: '/login', component: Login}
     ]
 });
